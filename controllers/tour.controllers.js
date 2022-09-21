@@ -121,7 +121,6 @@ exports.getTrendingTours = async (req, res) => {
       });
     }
   };
-  
   exports.getCheapestTours = async (req, res) => {
     try {
       const tours = await getCheapestToursService(req.query.resultsToShow);
