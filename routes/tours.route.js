@@ -11,8 +11,11 @@ router.route("/")
     .get(tourRouter.getTourById)
     .patch(tourRouter.updateTourById)
 
-    router.route('/trending').get(tourRouter.getTrendingTours)
-    router.route('/cheapest').get(tourRouter.getCheapestTours);
+    router.route("/trending")
+    .get(tourRouter.getTrendingTours);
+
+    router.route('/cheapest')
+    .get(tourRouter.getCheapestTours);
 
 
     module.exports = router;

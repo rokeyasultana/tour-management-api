@@ -16,7 +16,8 @@ const tourSchema =  mongoose.Schema({
     },
   
     image:{
-      type: String
+      type: String,
+      required: [true, "Image is required"],
     },
   
     price:{

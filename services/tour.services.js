@@ -29,10 +29,10 @@ exports.updateTourIdServer = async (id, data) => {
 exports.getTrendingToursService = async (resultsToShow) => {
     const result = await Tour.find({})
       .limit(resultsToShow || 3)
-      .sort({ views: -1, name: 1 });
+      .sort({ viewer: -1, name: 1 });
     return result;
   };
-  
+
   exports.getCheapestToursService = async (resultsToShow) => {
     const result = await Tour.find({})
       .limit(resultsToShow || 3)
