@@ -15,15 +15,17 @@ exports.createTours = async (data) => {
     return tour;
 }
 
-exports.getTourId= async (id) => {
+exports.getTourIdService = async (id) => {
     const tour = await Tour.findById(id);
     return tour;
 }
-exports.updateToursId= async (id, data) => {
+
+exports.updateTourIdServer = async (id, data) => {
     const tour = await Tour.findById(id);
     const result = await tour.set(data).save();
     return result;
 }
+
 exports.getTrendingTour = async () => {
     const tours = await Tour.find({}).sort({ viewer: -1 }).limit(3);
     return tours;

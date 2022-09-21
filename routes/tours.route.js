@@ -8,10 +8,8 @@ router.route("/")
  .post(tourRouter.saveTour)
 
  router.route("/:id")
-
-    .get(tourRouter.getTourById )
-    .patch(tourRouter.updateTourById  )
-
+    .get(tourRouter.getTourById)
+    .patch(tourRouter.updateTourById)
 
     router.route("/trending")
     .get(tourRouter.getTrendingTours)
