@@ -1,4 +1,9 @@
-const {getTourService,createTours, getTourIdService,updateTourIdServer,getTrendingTour, getCheapestTour  } = require("../services/tour.services");
+const {getTourService,
+    createTours, 
+    getTourIdService,
+    updateTourIdServer,
+    getTrendingToursService,
+    getCheapestToursService,} = require("../services/tour.services");
 exports.getTours= async (req, res) => {
     try {
         let filters = { ...req.query };
@@ -104,40 +109,28 @@ exports.updateTourById = async (req, res) => {
         })
     }
 }
-exports.getTrending = async (req, res) => {
+exports.getTrendingTours = async (req, res) => {
     try {
-        const result = await getTrendingTour();
-
-        res.status(200).json({
-            status: "SUccess",
-            message: "Successfully found Trending",
-            data: result
-        })
+      const tours = await getTrendingToursService(req.query.resultsToShow);
+      return res.status(200).json(tours);
     } catch (error) {
-        res.status(400).json({
-            status: "Failed",
-            message: "Failed to get trending",
-            error: error.message
-        })
+      return res.status(400).json({
+        success: false,
+        message: "Can't get trending tours",
+        error: error.message,
+      });
     }
-}
-
-exports.getCheapest = async (req, res) => {
-    try {
-        const result = await getCheapestTour();
-
-        res.status(200).json({
-            status: "SUccess",
-            message: "Successfully found Trending",
-            data: result
-        })
-
-    } catch (error) {
-        res.status(400).json({
-            status: "Failed",
-            message: " Failed to get trending",
-            error: error.message
-        })
-    }
-}
+  };
   
+  exports.getCheapestTours = async (req, res) => {
+    try {
+      const tours = await getCheapestToursService(req.query.resultsToShow);
+      return res.status(200).json(tours);
+    } catch (error) {
+      return res.status(400).json({
+        success: false,
+        message: "Can't get cheapest tours",
+        error: error.message,
+      });
+    }
+  };

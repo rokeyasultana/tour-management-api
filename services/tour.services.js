@@ -26,12 +26,16 @@ exports.updateTourIdServer = async (id, data) => {
     return result;
 }
 
-exports.getTrendingTour = async () => {
-    const tours = await Tour.find({}).sort({ viewer: -1 }).limit(3);
-    return tours;
-}
-
-exports.getCheapestTour = async () => {
-    const tours = await Tour.find({}).sort({ price: 1 }).limit(3);
-    return tours;
-}
+exports.getTrendingToursService = async (resultsToShow) => {
+    const result = await Tour.find({})
+      .limit(resultsToShow || 3)
+      .sort({ views: -1, name: 1 });
+    return result;
+  };
+  
+  exports.getCheapestToursService = async (resultsToShow) => {
+    const result = await Tour.find({})
+      .limit(resultsToShow || 3)
+      .sort({ price: 1, name: 1 });
+    return result;
+  };
