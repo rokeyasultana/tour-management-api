@@ -9,7 +9,7 @@ router.route("/")
 
  router.route("/:id")
 
-    .get(tourRouter.getTourId)
+    .get(tourRouter.getTourById )
     .patch(tourRouter.updateTourById  )
 
 

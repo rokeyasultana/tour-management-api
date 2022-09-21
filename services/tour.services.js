@@ -15,7 +15,7 @@ exports.createTours = async (data) => {
     return tour;
 }
 
-exports.getToursId= async (id) => {
+exports.getTourId= async (id) => {
     const tour = await Tour.findById(id);
     return tour;
 }
