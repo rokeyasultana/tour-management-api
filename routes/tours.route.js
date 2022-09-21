@@ -12,4 +12,11 @@ router.route("/")
     .get(tourRouter.getTourId)
     .patch(tourRouter.updateTourId)
 
+
+    router.route("/trending")
+    .get(tourRouter.getTrending)
+
+router.route("/cheapest")
+    .get(tourRouter.getCheapest)
+
     module.exports = router;
