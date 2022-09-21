@@ -10,3 +10,7 @@ exports.getTourService= async (filter, { skip, limit = 10, sortBy, fields }) => 
     const pageCount = Math.ceil(totalTour / limit)
     return { totalTour, pageCount, tours };
 }
+exports.createTours = async (data) => {
+    const tour = await Tour.create(data);
+    return tour;
+}
