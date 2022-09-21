@@ -1,4 +1,4 @@
-const {getTourService,createTours,getToursId,updateTourId,updateTourById,getCheapestTour,getTrendingTour } = require("../services/tour.services");
+const {getTourService,createTours,getToursId,updateTourId,updateToursId,getCheapestTour,getTrendingTour } = require("../services/tour.services");
 exports.getTours= async (req, res) => {
     try {
         let filters = { ...req.query };
@@ -84,11 +84,11 @@ exports.getTourId = async (req, res) => {
         })
     }
 }
-exports.updateTourId = async (req, res) => {
+exports.updateTourById = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const result = await updateTourById(id, req.body);
+        const result = await updateToursId(id, req.body);
 
         res.status(200).json({
             status: "Success",
