@@ -10,7 +10,7 @@ router.route("/")
  router.route("/:id")
 
     .get(tourRouter.getTourId)
-    .patch(tourRouter.updateTourId)
+    .patch(tourRouter.updateTourId  )
 
 
     router.route("/trending")

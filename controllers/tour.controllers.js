@@ -109,7 +109,7 @@ exports.getTrendingTours = async (req, res) => {
         const result = await getTrendingTour();
 
         res.status(200).json({
-            status: "SUccess",
+            status: "Success",
             message: "Successfully found Trending",
             data: result
         })
