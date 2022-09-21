@@ -24,3 +24,12 @@ exports.updateTourById= async (id, data) => {
     const result = await tour.set(data).save();
     return result;
 }
+exports.getTrendingTour = async () => {
+    const tours = await Tour.find({}).sort({ viewer: -1 }).limit(3);
+    return tours;
+}
+
+exports.getCheapestTour = async () => {
+    const tours = await Tour.find({}).sort({ price: 1 }).limit(3);
+    return tours;
+}

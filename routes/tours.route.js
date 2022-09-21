@@ -14,9 +14,9 @@ router.route("/")
 
 
     router.route("/trending")
-    .get(tourRouter.getTrending)
+    .get(tourRouter.getTrendingTours)
 
 router.route("/cheapest")
-    .get(tourRouter.getCheapest)
+    .get(tourRouter.getCheapestTours )
 
     module.exports = router;
