@@ -14,3 +14,8 @@ exports.createTours = async (data) => {
     const tour = await Tour.create(data);
     return tour;
 }
+
+exports.getToursId= async (id) => {
+    const tour = await Tour.findById(id);
+    return tour;
+}
